@@ -1,0 +1,18 @@
+{
+  "name": "@heimijj/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "黑米姐姐前后端共享类型与常量",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

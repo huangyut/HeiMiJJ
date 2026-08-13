@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.taro/
+.swc/
+.temp/
+.cache/
+coverage/
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

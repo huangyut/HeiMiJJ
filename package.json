@@ -1,0 +1,30 @@
+{
+  "name": "heimijiejie",
+  "version": "0.1.0",
+  "private": true,
+  "description": "黑米姐姐社区联营与到店自提平台",
+  "workspaces": [
+    "apps/customer-miniapp",
+    "services/api",
+    "packages/shared"
+  ],
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "dev:miniapp": "npm run dev -w @heimijj/customer-miniapp",
+    "dev:api": "npm run dev -w @heimijj/api",
+    "build": "npm run build:shared && npm run build:api && npm run build:miniapp",
+    "build:shared": "npm run build -w @heimijj/shared",
+    "build:api": "npm run build -w @heimijj/api",
+    "build:miniapp": "npm run build -w @heimijj/customer-miniapp",
+    "typecheck": "npm run build:shared && npm run typecheck -w @heimijj/api && npm run typecheck -w @heimijj/customer-miniapp",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
