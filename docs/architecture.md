@@ -21,6 +21,23 @@ flowchart TD
 - `packages/`：前后端可复用的类型、常量和工具。
 - `docs/`：架构、开发、接口与业务规则文档。
 
+## 后端目录结构
+
+```text
+services/api/src/
+├── common/          # 公共常量、异常、接口和类型
+├── config/          # 应用配置与环境变量
+├── database/        # 数据库连接、迁移和仓储实现
+├── integrations/    # 微信、支付、对象存储等外部能力
+├── jobs/            # 超时关闭、通知、补偿等任务
+├── modules/         # 按业务域拆分的 NestJS 模块
+├── observability/   # 日志、指标与链路追踪
+├── app.module.ts
+└── main.ts
+```
+
+后端模块的详细职责和内部约定见 [`services/api/README.md`](../services/api/README.md)。
+
 ## 首期业务模块
 
 | 模块   | 职责                         | 首期优先级 |
