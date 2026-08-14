@@ -1,0 +1,36 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: heimijj-mysql
+    environment:
+      MYSQL_DATABASE: heimijj
+      MYSQL_USER: heimijj
+      MYSQL_PASSWORD: heimijj_dev
+      MYSQL_ROOT_PASSWORD: root_dev
+      TZ: Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - heimijj_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7.4-alpine
+    container_name: heimijj-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - heimijj_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  heimijj_mysql_data:
+  heimijj_redis_data:

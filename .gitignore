@@ -1,17 +1,35 @@
+# Frontend
 node_modules/
+.npm-cache/
 dist/
 .taro/
+.taro-home/
 .swc/
 .temp/
 .cache/
 coverage/
 
+# Backend
+backend/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Environment
 .env
 .env.*
 !.env.example
+application-local.yml
 
+# IDE and system
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
+*.iml
 *.log
+*.tsbuildinfo
+
+# WeChat developer tool private configuration
+project.private.config.json
