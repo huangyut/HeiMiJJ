@@ -1,0 +1,8 @@
+node_modules
+.npm-cache
+.taro-home
+dist
+.taro
+.swc
+coverage
+package-lock.json
