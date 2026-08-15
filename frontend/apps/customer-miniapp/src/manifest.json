@@ -1,0 +1,25 @@
+{
+  "name": "黑米姐姐消费者端",
+  "appid": "__UNI__HEIMIJJ_CUSTOMER",
+  "description": "黑米姐姐消费者微信小程序",
+  "versionName": "0.3.0",
+  "versionCode": "300",
+  "transformPx": false,
+  "mp-weixin": {
+    "appid": "touristappid",
+    "setting": {
+      "urlCheck": false
+    },
+    "usingComponents": true,
+    "permission": {
+      "scope.userLocation": {
+        "desc": "用于查找附近可自提的联营门店"
+      }
+    },
+    "requiredPrivateInfos": ["getLocation"]
+  },
+  "uniStatistics": {
+    "enable": false
+  },
+  "vueVersion": "3"
+}

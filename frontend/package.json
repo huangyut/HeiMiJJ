@@ -1,7 +1,8 @@
 {
   "name": "@heimijj/frontend",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
+  "type": "module",
   "description": "黑米姐姐前端工作区",
   "workspaces": [
     "apps/*",
@@ -16,12 +17,17 @@
     "dev:store": "npm run dev -w @heimijj/store-miniapp",
     "dev:admin": "npm run dev -w @heimijj/admin-web",
     "build": "npm run build --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "test": "npm run test --workspaces --if-present",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "clean": "npm run clean --workspaces --if-present"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "@eslint/js": "^9.39.0",
+    "eslint": "^9.39.0",
+    "eslint-plugin-vue": "^10.6.0",
+    "fs-extra": "^11.3.1",
+    "prettier": "^3.9.6"
   }
 }

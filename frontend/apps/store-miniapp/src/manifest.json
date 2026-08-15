@@ -1,0 +1,19 @@
+{
+  "name": "黑米姐姐门店端",
+  "appid": "__UNI__HEIMIJJ_STORE",
+  "description": "黑米姐姐社区联营门店微信小程序",
+  "versionName": "0.3.0",
+  "versionCode": "300",
+  "transformPx": false,
+  "mp-weixin": {
+    "appid": "touristappid",
+    "setting": {
+      "urlCheck": false
+    },
+    "usingComponents": true
+  },
+  "uniStatistics": {
+    "enable": false
+  },
+  "vueVersion": "3"
+}

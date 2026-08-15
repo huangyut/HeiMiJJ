@@ -1,0 +1,57 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "门店工作台"
+      }
+    },
+    {
+      "path": "pages/orders/index",
+      "style": {
+        "navigationBarTitleText": "门店订单"
+      }
+    },
+    {
+      "path": "pages/verify/index",
+      "style": {
+        "navigationBarTitleText": "取货核销"
+      }
+    },
+    {
+      "path": "pages/profile/index",
+      "style": {
+        "navigationBarTitleText": "门店中心"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "黑米姐姐门店端",
+    "navigationBarBackgroundColor": "#1f2a35",
+    "backgroundColor": "#f3f5f7"
+  },
+  "tabBar": {
+    "color": "#6f7780",
+    "selectedColor": "#8a542f",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "工作台"
+      },
+      {
+        "pagePath": "pages/orders/index",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/verify/index",
+        "text": "核销"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "门店"
+      }
+    ]
+  }
+}

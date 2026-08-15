@@ -1,42 +1,27 @@
 {
   "name": "@heimijj/customer-miniapp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "黑米姐姐消费者微信小程序",
   "scripts": {
-    "dev": "taro build --type weapp --watch",
-    "build": "taro build --type weapp",
-    "typecheck": "tsc --noEmit",
-    "clean": "taro clean"
+    "dev": "uni -p mp-weixin",
+    "build": "uni build -p mp-weixin",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
   },
   "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-5020420260813002",
+    "@dcloudio/uni-components": "3.0.0-5020420260813002",
+    "@dcloudio/uni-mp-weixin": "3.0.0-5020420260813002",
     "@heimijj/api-client": "*",
     "@heimijj/shared-constants": "*",
-    "@heimijj/shared-types": "*",
     "@heimijj/shared-utils": "*",
-    "@tarojs/components": "4.2.1",
-    "@tarojs/helper": "4.2.1",
-    "@tarojs/plugin-framework-react": "4.2.1",
-    "@tarojs/plugin-platform-weapp": "4.2.1",
-    "@tarojs/react": "4.2.1",
-    "@tarojs/runtime": "4.2.1",
-    "@tarojs/taro": "4.2.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
-    "@babel/preset-react": "^7.27.1",
-    "@tarojs/cli": "4.2.1",
-    "@tarojs/webpack5-runner": "4.2.1",
-    "@types/node": "^22.15.0",
-    "@types/react": "^18.3.0",
-    "@types/webpack-env": "^1.18.5",
-    "babel-preset-taro": "4.2.1",
-    "postcss": "^8.5.0",
-    "react-refresh": "^0.17.0",
-    "sass": "^1.77.0",
-    "typescript": "^5.9.3",
-    "webpack": "5.91.0"
+    "@dcloudio/uni-cli-shared": "3.0.0-5020420260813002",
+    "@dcloudio/vite-plugin-uni": "3.0.0-5020420260813002",
+    "@vue/runtime-core": "^3.4.21",
+    "sass": "^1.102.0",
+    "vite": "5.2.8"
   }
 }
