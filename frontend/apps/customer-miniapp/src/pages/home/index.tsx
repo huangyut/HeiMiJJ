@@ -1,6 +1,15 @@
-import { Input, ScrollView, Swiper, SwiperItem, Text, View } from '@tarojs/components'
+import { Image, Input, ScrollView, Swiper, SwiperItem, Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { useEffect, useMemo, useState } from 'react'
+
+import crabImage from '../../assets/home/crab.png'
+import dumplingImage from '../../assets/home/dumpling.png'
+import icecreamImage from '../../assets/home/icecream.png'
+import pastaImage from '../../assets/home/pasta.png'
+import salmonImage from '../../assets/home/salmon.png'
+import sausageImage from '../../assets/home/sausage.png'
+import shrimpImage from '../../assets/home/shrimp.png'
+import steakImage from '../../assets/home/steak.png'
 
 import './index.scss'
 
@@ -10,60 +19,58 @@ type Product = {
   description: string
   price: string
   originalPrice?: string
-  emoji: string
-  tone: string
+  image: string
   tag?: string
 }
 
 const banners = [
   {
-    badge: '新人专享',
-    title: '首单立减 20 元',
-    description: '社区好物线上选，附近门店 15 分钟可取',
-    action: '立即逛逛',
-    emoji: '🥩',
-    tone: 'berry',
+    badge: '黑米姐姐严选',
+    title: '好食材，离家更近',
+    description: '线上下单，附近门店约 15 分钟可取',
+    action: '立即选购',
+    image: steakImage,
+    tone: 'warm',
   },
   {
-    badge: '产地直达',
-    title: '海鲜尝鲜季',
-    description: '严选鲜虾与鱼类，到店自提更新鲜',
-    action: '去尝鲜',
-    emoji: '🦐',
-    tone: 'ocean',
+    badge: '全程冷链',
+    title: '鲜味从产地到社区',
+    description: '温控运输，到店储存，全链路守护新鲜',
+    action: '查看品质保障',
+    image: shrimpImage,
+    tone: 'fresh',
   },
   {
     badge: '夏日新品',
-    title: '冰爽囤货节',
-    description: '冰淇淋第二件半价，数量有限',
-    action: '抢先购',
-    emoji: '🍦',
-    tone: 'cream',
+    title: '清凉好味限时上新',
+    description: '牛乳冰淇淋第二件半价，附近门店可取',
+    action: '抢先尝鲜',
+    image: icecreamImage,
+    tone: 'sweet',
   },
 ]
 
 const shortcuts = [
-  { label: '肉类', emoji: '🥩', tone: 'rose' },
-  { label: '海鲜', emoji: '🦐', tone: 'blue' },
-  { label: '速食', emoji: '🥟', tone: 'yellow' },
-  { label: '冰淇淋', emoji: '🍦', tone: 'pink' },
-  { label: '火锅食材', emoji: '🍲', tone: 'orange' },
-  { label: '今日特价', emoji: '⚡', tone: 'red' },
-  { label: '新品', emoji: '✨', tone: 'purple' },
-  { label: '附近门店', emoji: '📍', tone: 'green' },
-  { label: '优惠券', emoji: '🎫', tone: 'gold' },
-  { label: '全部分类', emoji: '▦', tone: 'slate' },
+  { label: '肉类', icon: '肉', tone: 'rose' },
+  { label: '海鲜', icon: '鲜', tone: 'blue' },
+  { label: '速食', icon: '速', tone: 'yellow' },
+  { label: '冰淇淋', icon: '冰', tone: 'pink' },
+  { label: '火锅食材', icon: '锅', tone: 'orange' },
+  { label: '今日特价', icon: '惠', tone: 'red' },
+  { label: '新品', icon: '新', tone: 'purple' },
+  { label: '附近门店', icon: '店', tone: 'green' },
+  { label: '优惠券', icon: '券', tone: 'gold' },
+  { label: '全部分类', icon: '全', tone: 'slate' },
 ]
 
 const specialProducts: Product[] = [
   {
     id: 1,
     name: '谷饲雪花牛排 180g',
-    description: '鲜嫩多汁 · 原切整肉',
+    description: '原切整肉 · 鲜嫩多汁',
     price: '39.9',
     originalPrice: '59.9',
-    emoji: '🥩',
-    tone: 'steak',
+    image: steakImage,
     tag: '限量 80 份',
   },
   {
@@ -72,8 +79,7 @@ const specialProducts: Product[] = [
     description: '解冻即食 · 鲜甜饱满',
     price: '29.9',
     originalPrice: '45.9',
-    emoji: '🦐',
-    tone: 'shrimp',
+    image: shrimpImage,
     tag: '已抢 62%',
   },
   {
@@ -82,8 +88,7 @@ const specialProducts: Product[] = [
     description: '皮薄馅足 · 早餐优选',
     price: '25.9',
     originalPrice: '39.9',
-    emoji: '🥟',
-    tone: 'dumpling',
+    image: dumplingImage,
     tag: '门店热销',
   },
   {
@@ -92,8 +97,7 @@ const specialProducts: Product[] = [
     description: '肉香浓郁 · 快手加餐',
     price: '19.9',
     originalPrice: '29.9',
-    emoji: '🌭',
-    tone: 'sausage',
+    image: sausageImage,
     tag: '今日特惠',
   },
 ]
@@ -104,26 +108,23 @@ const newProducts: Product[] = [
     name: '挪威三文鱼切片',
     description: '低温锁鲜，口感细腻',
     price: '49.9',
-    emoji: '🍣',
-    tone: 'salmon',
-    tag: '新品',
+    image: salmonImage,
+    tag: '本周新品',
   },
   {
     id: 12,
     name: '黑松露奶油意面',
-    description: '8 分钟轻松完成一餐',
+    description: '8 分钟完成精致一餐',
     price: '26.9',
-    emoji: '🍝',
-    tone: 'pasta',
+    image: pastaImage,
     tag: '主厨推荐',
   },
   {
     id: 13,
     name: '帝王蟹腿拼盘',
-    description: '大块蟹肉，家庭聚餐',
+    description: '大块蟹肉，家庭分享',
     price: '89.0',
-    emoji: '🦀',
-    tone: 'crab',
+    image: crabImage,
     tag: '限时上新',
   },
   {
@@ -131,28 +132,8 @@ const newProducts: Product[] = [
     name: '牛乳芝士冰淇淋',
     description: '浓郁奶香，清爽不腻',
     price: '16.9',
-    emoji: '🍨',
-    tone: 'icecream',
+    image: icecreamImage,
     tag: '第二件半价',
-  },
-]
-
-const personalizedProducts: Product[] = [
-  {
-    id: 21,
-    name: '潮汕手打牛肉丸',
-    description: '根据你常买的火锅食材推荐',
-    price: '32.9',
-    emoji: '🍢',
-    tone: 'meatball',
-  },
-  {
-    id: 22,
-    name: '香辣小龙虾尾',
-    description: '根据你最近浏览的海鲜推荐',
-    price: '36.9',
-    emoji: '🦞',
-    tone: 'lobster',
   },
 ]
 
@@ -165,7 +146,8 @@ const formatTime = (seconds: number) => {
 
 export default function HomePage() {
   const [storeName, setStoreName] = useState('正在匹配附近门店')
-  const [storeMeta, setStoreMeta] = useState('开启定位，优先展示可快速自提门店')
+  const [storeDistance, setStoreDistance] = useState('开启定位后显示距离')
+  const [storeStatus, setStoreStatus] = useState('定位中')
   const [locating, setLocating] = useState(false)
   const [remainingSeconds, setRemainingSeconds] = useState(2 * 60 * 60 + 18 * 60 + 6)
 
@@ -177,16 +159,19 @@ export default function HomePage() {
     setLocating(true)
     if (!silent) {
       setStoreName('正在重新定位…')
-      setStoreMeta('请稍候，正在匹配最近的营业门店')
+      setStoreDistance('正在匹配最近的营业门店')
+      setStoreStatus('定位中')
     }
 
     try {
       await Taro.getLocation({ type: 'gcj02' })
       setStoreName('黑米姐姐 · 湖岸社区店')
-      setStoreMeta('距你 1.2km · 营业中 · 约 15 分钟可取')
+      setStoreDistance('距你 1.2km')
+      setStoreStatus('营业中')
     } catch {
       setStoreName('请选择附近自提门店')
-      setStoreMeta('定位未开启，也可以手动选择门店')
+      setStoreDistance('定位未开启，可手动选择')
+      setStoreStatus('待选择')
     } finally {
       setLocating(false)
     }
@@ -204,9 +189,13 @@ export default function HomePage() {
     return () => clearInterval(timer)
   }, [])
 
+  const openStores = () => {
+    void Taro.switchTab({ url: '/pages/stores/index' })
+  }
+
   const handleShortcut = (label: string) => {
     if (label === '附近门店') {
-      void Taro.switchTab({ url: '/pages/stores/index' })
+      openStores()
       return
     }
 
@@ -217,21 +206,25 @@ export default function HomePage() {
     Taro.showToast({ title: product.name, icon: 'none' })
   }
 
+  const openTechnology = () => {
+    Taro.showToast({ title: '技术科普详情页建设中', icon: 'none' })
+  }
+
   return (
     <View className="home">
-      <View className="home-header">
-        <View className="location-row" onClick={() => void locateNearbyStores()}>
-          <View className="location-row__pin">⌖</View>
-          <View className="location-row__content">
-            <View className="location-row__title-line">
-              <Text className="location-row__title">{storeName}</Text>
-              <Text className="location-row__arrow">›</Text>
-            </View>
-            <Text className="location-row__meta">{storeMeta}</Text>
+      <View className="hero-header">
+        <View className="brand-row">
+          <View className="brand-mark">黑</View>
+          <View className="brand-copy">
+            <Text className="brand-copy__name">黑米姐姐</Text>
+            <Text className="brand-copy__slogan">社区好食材 · 新鲜看得见</Text>
           </View>
-          <View className="location-row__pickup">
-            <Text className="location-row__pickup-time">15</Text>
-            <Text className="location-row__pickup-unit">分钟可取</Text>
+          <View
+            className="brand-service"
+            onClick={() => Taro.showToast({ title: '客服功能建设中', icon: 'none' })}
+          >
+            <Text className="brand-service__icon">•••</Text>
+            <Text className="brand-service__text">客服</Text>
           </View>
         </View>
 
@@ -245,11 +238,39 @@ export default function HomePage() {
           />
           <Text className="search-bar__action">搜索</Text>
         </View>
+
+        <View className="pickup-card">
+          <View className="pickup-card__pin">
+            <View className="pickup-card__pin-dot" />
+          </View>
+          <View className="pickup-card__content" onClick={() => void locateNearbyStores()}>
+            <View className="pickup-card__eyebrow-row">
+              <Text className="pickup-card__eyebrow">一刻钟生活圈</Text>
+              <Text
+                className={`pickup-card__status pickup-card__status--${storeStatus === '营业中' ? 'open' : 'waiting'}`}
+              >
+                {storeStatus}
+              </Text>
+            </View>
+            <View className="pickup-card__store-row">
+              <Text className="pickup-card__store">{storeName}</Text>
+              <Text className="pickup-card__arrow">›</Text>
+            </View>
+            <Text className="pickup-card__distance">{storeDistance} · 支持到店自提</Text>
+          </View>
+          <View className="pickup-card__time" onClick={openStores}>
+            <Text className="pickup-card__number">15</Text>
+            <View className="pickup-card__unit">
+              <Text>分钟</Text>
+              <Text>可取</Text>
+            </View>
+          </View>
+        </View>
       </View>
 
       <View className="announcement">
-        <Text className="announcement__badge">公告</Text>
-        <Text className="announcement__text">新用户首单立减 20 元，下单后附近门店快速自提</Text>
+        <Text className="announcement__badge">今日公告</Text>
+        <Text className="announcement__text">新用户首单立减 20 元，附近门店快速自提</Text>
         <Text className="announcement__arrow">›</Text>
       </View>
 
@@ -272,8 +293,9 @@ export default function HomePage() {
                 <Text className="banner__action">{banner.action} →</Text>
               </View>
               <View className="banner__visual">
-                <View className="banner__halo" />
-                <Text className="banner__emoji">{banner.emoji}</Text>
+                <View className="banner__image-frame">
+                  <Image className="banner__image" src={banner.image} mode="aspectFill" />
+                </View>
               </View>
             </View>
           </SwiperItem>
@@ -288,19 +310,56 @@ export default function HomePage() {
             onClick={() => handleShortcut(shortcut.label)}
           >
             <View className={`shortcut__icon shortcut__icon--${shortcut.tone}`}>
-              <Text>{shortcut.emoji}</Text>
+              <Text>{shortcut.icon}</Text>
             </View>
             <Text className="shortcut__label">{shortcut.label}</Text>
           </View>
         ))}
       </View>
 
+      <View className="technology-card" onClick={openTechnology}>
+        <View className="technology-card__topline">
+          <View>
+            <Text className="technology-card__eyebrow">黑米姐姐技术展示</Text>
+            <Text className="technology-card__title">锁住新鲜，也把原理讲清楚</Text>
+          </View>
+          <View className="technology-card__play">
+            <View className="technology-card__play-icon" />
+          </View>
+        </View>
+        <Text className="technology-card__description">
+          从急速锁鲜、全程冷链到门店自提，每一步都有依据
+        </Text>
+        <View className="technology-metrics">
+          <View className="technology-metric">
+            <Text className="technology-metric__value">-35℃</Text>
+            <Text className="technology-metric__label">急速锁鲜</Text>
+          </View>
+          <View className="technology-metrics__line" />
+          <View className="technology-metric">
+            <Text className="technology-metric__value">全程</Text>
+            <Text className="technology-metric__label">冷链温控</Text>
+          </View>
+          <View className="technology-metrics__line" />
+          <View className="technology-metric">
+            <Text className="technology-metric__value">可追溯</Text>
+            <Text className="technology-metric__label">商品批次</Text>
+          </View>
+        </View>
+        <View className="technology-card__footer">
+          <Text className="technology-card__watch">2 分钟看懂锁鲜技术</Text>
+          <Text className="technology-card__link">查看原理 →</Text>
+        </View>
+      </View>
+
       <View className="content-section content-section--special">
         <View className="section-heading">
           <View className="section-heading__main">
             <View className="section-heading__bar" />
-            <Text className="section-heading__title">今日特惠</Text>
-            <Text className="section-heading__subtitle">每日 10:00 更新</Text>
+            <View>
+              <Text className="section-heading__title">今日特惠</Text>
+              <Text className="section-heading__subtitle">门店每日 10:00 更新</Text>
+            </View>
           </View>
           <View className="countdown">
             <Text className="countdown__label">距结束</Text>
@@ -313,7 +372,7 @@ export default function HomePage() {
           </View>
         </View>
 
-        <ScrollView className="product-scroll" scrollX>
+        <ScrollView className="product-scroll" scrollX enhanced showScrollbar={false}>
           <View className="product-scroll__content">
             {specialProducts.map((product) => (
               <View
@@ -321,10 +380,9 @@ export default function HomePage() {
                 key={product.id}
                 onClick={() => handleProduct(product)}
               >
-                <View className={`product-visual product-visual--${product.tone}`}>
-                  <Text className="product-visual__tag">{product.tag}</Text>
-                  <View className="product-visual__plate" />
-                  <Text className="product-visual__emoji">{product.emoji}</Text>
+                <View className="product-image-wrap">
+                  <Image className="product-image" src={product.image} mode="aspectFill" />
+                  <Text className="product-image__tag">{product.tag}</Text>
                 </View>
                 <View className="special-card__body">
                   <Text className="special-card__name">{product.name}</Text>
@@ -344,9 +402,11 @@ export default function HomePage() {
       <View className="content-section">
         <View className="section-heading">
           <View className="section-heading__main">
-            <View className="section-heading__bar" />
-            <Text className="section-heading__title">新品推荐</Text>
-            <Text className="section-heading__subtitle">本周上新</Text>
+            <View className="section-heading__bar section-heading__bar--gold" />
+            <View>
+              <Text className="section-heading__title">新品推荐</Text>
+              <Text className="section-heading__subtitle">严选本周新鲜好味</Text>
+            </View>
           </View>
           <Text className="section-heading__more">查看更多 ›</Text>
         </View>
@@ -358,10 +418,9 @@ export default function HomePage() {
               key={product.id}
               onClick={() => handleProduct(product)}
             >
-              <View className={`new-product-card__visual product-visual--${product.tone}`}>
+              <View className="new-product-card__visual">
+                <Image className="new-product-card__image" src={product.image} mode="aspectFill" />
                 <Text className="new-product-card__tag">{product.tag}</Text>
-                <View className="new-product-card__circle" />
-                <Text className="new-product-card__emoji">{product.emoji}</Text>
               </View>
               <View className="new-product-card__body">
                 <Text className="new-product-card__name">{product.name}</Text>
@@ -379,32 +438,16 @@ export default function HomePage() {
         </View>
       </View>
 
-      <View className="recommendation">
-        <View className="recommendation__heading">
-          <View>
-            <Text className="recommendation__eyebrow">懂你的社区冰箱</Text>
-            <Text className="recommendation__title">为你推荐</Text>
-          </View>
-          <Text className="recommendation__reason">根据浏览和购买记录</Text>
+      <View className="quality-promise">
+        <Text className="quality-promise__eyebrow">HEIMI QUALITY</Text>
+        <Text className="quality-promise__title">每一份食材，都经得起了解</Text>
+        <View className="quality-promise__items">
+          <Text>严选产地</Text>
+          <View className="quality-promise__dot" />
+          <Text>冷链到店</Text>
+          <View className="quality-promise__dot" />
+          <Text>社区自提</Text>
         </View>
-
-        {personalizedProducts.map((product) => (
-          <View
-            className="recommendation-card"
-            key={product.id}
-            onClick={() => handleProduct(product)}
-          >
-            <View className={`recommendation-card__visual product-visual--${product.tone}`}>
-              <Text>{product.emoji}</Text>
-            </View>
-            <View className="recommendation-card__content">
-              <Text className="recommendation-card__name">{product.name}</Text>
-              <Text className="recommendation-card__description">{product.description}</Text>
-              <Text className="recommendation-card__price">¥{product.price}</Text>
-            </View>
-            <Text className="recommendation-card__arrow">›</Text>
-          </View>
-        ))}
       </View>
 
       <Text className="home-footer">黑米姐姐 · 社区联营，让好食材离家更近</Text>
