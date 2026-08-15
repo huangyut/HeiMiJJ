@@ -10,13 +10,13 @@
 - 重构消费者小程序首页，补充 LBS 附近门店、活动 Banner、快捷分类、今日特惠、新品与个性化推荐
 - 将仓库重构为 `frontend` 与 `backend` 两个独立工程，支持两名开发者并行工作
 - 将消费者小程序迁移至前端工作区并保留现有页面成果
-- 将管理后台统一调整为 React 技术栈
-- 使用 OpenAPI 契约替代前后端直接共享 TypeScript 模型
+- 将两个小程序改为 uni-app + Vue 3 + JavaScript，管理后台改为 Vue 3 + Vite + Element Plus
+- 使用 OpenAPI 契约替代前后端直接共享语言模型
 
 ### 新增
 
-- 新增 Taro + React 门店端微信小程序骨架
-- 新增 React + Vite + Ant Design 平台管理后台骨架
+- 新增 uni-app + Vue 3 门店端微信小程序骨架
+- 新增 Vue 3 + Vite + Element Plus 平台管理后台骨架
 - 新增 Java 21 + Spring Boot 4.1 模块化单体后端
 - 新增认证、用户、门店、商品、库存、购物车、订单、支付、自提、退款、营销、内容与统计模块
 - 新增统一响应、全局异常处理、Spring Security、MyBatis-Plus、Redis、Flyway 和 OpenAPI 配置
@@ -29,6 +29,7 @@
 - 删除 NestJS 后端工程
 - 删除旧的根级 npm Workspaces 配置
 - 删除旧的前后端 TypeScript 共享模型包
+- 删除前端 Taro、React、TypeScript、Ant Design 代码与旧构建配置
 
 ## 0.1.0 - 2026-08-13
 

@@ -1,0 +1,14 @@
+export const ORDER_STATUS = Object.freeze({
+  PENDING_PAYMENT: 'PENDING_PAYMENT',
+  PENDING_PREPARATION: 'PENDING_PREPARATION',
+  PENDING_PICKUP: 'PENDING_PICKUP',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+  REFUNDING: 'REFUNDING',
+  REFUNDED: 'REFUNDED',
+})
+
+export const STORAGE_KEYS = Object.freeze({
+  ACCESS_TOKEN: 'heimijj_access_token',
+  CURRENT_STORE_ID: 'heimijj_current_store_id',
+})

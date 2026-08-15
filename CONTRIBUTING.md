@@ -23,6 +23,6 @@
 ## 提交前检查
 
 ```bash
-cd frontend && npm run typecheck && npm run build
+cd frontend && npm run lint && npm test && npm run build && npm run format:check
 cd backend && mvn test
 ```

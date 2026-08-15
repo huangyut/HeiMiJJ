@@ -2,11 +2,8 @@
 node_modules/
 .npm-cache/
 dist/
-.taro/
-.taro-home/
-.swc/
-.temp/
 .cache/
+unpackage/
 coverage/
 
 # Backend

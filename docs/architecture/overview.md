@@ -4,8 +4,8 @@
 
 项目采用“多前端 + 模块化单体后端”的方式：
 
-- 消费者小程序和门店小程序使用 Taro + React。
-- 管理后台使用 React + Vite + Ant Design。
+- 消费者小程序和门店小程序使用 uni-app + Vue 3 + JavaScript。
+- 管理后台使用 Vue 3 + Vite + Element Plus。
 - 后端使用 Java + Spring Boot，一个进程内按业务能力分模块。
 - MySQL 保存业务数据，Redis 保存缓存、验证码和短期状态。
 - 微信登录、微信支付、短信和对象存储统一放在 `integration` 层。

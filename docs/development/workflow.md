@@ -23,3 +23,15 @@
 | 管理后台 | `http://localhost:5173` |
 | MySQL | `localhost:3306` |
 | Redis | `localhost:6379` |
+
+## 前端调试
+
+在 `frontend` 目录安装一次依赖后，可分别运行：
+
+```bash
+npm run dev:customer
+npm run dev:store
+npm run dev:admin
+```
+
+消费者端和门店端开发命令会持续监听源码。微信开发者工具应分别导入 `apps/customer-miniapp/dist/dev/mp-weixin` 和 `apps/store-miniapp/dist/dev/mp-weixin`，不能直接导入源码目录。

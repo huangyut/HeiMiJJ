@@ -8,7 +8,7 @@
 
 | 工程 | 主要技术 | 负责内容 |
 | --- | --- | --- |
-| `frontend` | Taro、React、TypeScript、Vite、Ant Design | 消费者小程序、门店小程序、管理后台 |
+| `frontend` | Vue 3、JavaScript、uni-app、Vite、Element Plus | 消费者小程序、门店小程序、管理后台 |
 | `backend` | Java 21、Spring Boot、MyBatis-Plus、MySQL、Redis | 业务 API、认证授权、数据与第三方集成 |
 
 前后端通过 OpenAPI 接口契约协作，不共享构建工具和运行依赖。
@@ -24,7 +24,6 @@ HeiMiJJ/
 │   │   └── admin-web/          # 平台管理后台
 │   └── packages/
 │       ├── api-client/         # API 客户端抽象
-│       ├── shared-types/       # 前端公共类型
 │       ├── shared-constants/   # 前端公共常量
 │       └── shared-utils/       # 前端公共工具
 ├── backend/                    # Java Spring Boot 后端
@@ -68,7 +67,12 @@ npm run dev:store
 npm run dev:admin
 ```
 
-消费者端和门店端构建后，分别使用微信开发者工具打开对应应用目录。
+小程序开发命令需要保持运行，并使用微信开发者工具导入编译目录：
+
+- 消费者端：`frontend/apps/customer-miniapp/dist/dev/mp-weixin`
+- 门店端：`frontend/apps/store-miniapp/dist/dev/mp-weixin`
+
+管理后台在浏览器打开终端输出的地址（默认 `http://localhost:5173`）。
 
 ### 启动后端
 
