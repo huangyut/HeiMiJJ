@@ -1,0 +1,455 @@
+.stores-page {
+  min-height: 100vh;
+  padding-bottom: 56rpx;
+  background: #f6f3ee;
+  color: #2d211b;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stores-hero {
+  padding: 30rpx 28rpx 32rpx;
+  background:
+    radial-gradient(circle at 88% 2%, rgb(237 194 131 / 22%) 0, transparent 31%),
+    linear-gradient(145deg, #25130e 0%, #47271b 62%, #6d3f27 100%);
+  color: #fff;
+}
+
+.stores-hero__heading,
+.location-card,
+.stores-toolbar,
+.store-card__header,
+.store-card__identity,
+.store-card__tags,
+.store-card__pickup,
+.store-card__detail-row,
+.store-card__actions,
+.stores-note {
+  display: flex;
+  align-items: center;
+}
+
+.stores-hero__heading,
+.stores-toolbar,
+.store-card__header {
+  justify-content: space-between;
+}
+
+.stores-hero__eyebrow,
+.stores-hero__title,
+.stores-toolbar__title,
+.stores-toolbar__count {
+  display: block;
+}
+
+.stores-hero__eyebrow {
+  color: #edc589;
+  font-size: 24rpx;
+  font-weight: 800;
+  letter-spacing: 2rpx;
+}
+
+.stores-hero__title {
+  margin-top: 7rpx;
+  font-size: 38rpx;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.stores-hero__badge {
+  display: flex;
+  height: 78rpx;
+  flex: 0 0 auto;
+  align-items: baseline;
+  margin-left: 20rpx;
+  padding: 0 20rpx;
+  border: 1rpx solid rgb(248 213 165 / 36%);
+  border-radius: 24rpx;
+  background: rgb(255 255 255 / 10%);
+}
+
+.stores-hero__badge-number {
+  color: #f3c789;
+  font-size: 43rpx;
+  font-weight: 900;
+  line-height: 78rpx;
+}
+
+.stores-hero__badge-unit {
+  margin-left: 6rpx;
+  color: #f1e6dc;
+  font-size: 20rpx;
+  font-weight: 700;
+}
+
+.location-card {
+  margin-top: 26rpx;
+  padding: 22rpx 20rpx;
+  border: 1rpx solid rgb(255 255 255 / 14%);
+  border-radius: 24rpx;
+  background: rgb(255 255 255 / 9%);
+}
+
+.location-card__pin {
+  display: flex;
+  width: 52rpx;
+  height: 58rpx;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 28rpx 28rpx 28rpx 9rpx;
+  background: #df7054;
+  transform: rotate(-7deg);
+}
+
+.location-card__pin-core {
+  width: 14rpx;
+  height: 14rpx;
+  border: 6rpx solid #fff;
+  border-radius: 50%;
+}
+
+.location-card__content {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  margin-left: 17rpx;
+}
+
+.location-card__label {
+  color: #d2c2b8;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+
+.location-card__address {
+  overflow: hidden;
+  margin-top: 5rpx;
+  color: #fff;
+  font-size: 26rpx;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.location-card__refresh {
+  height: 58rpx;
+  flex: 0 0 auto;
+  margin: 0 0 0 16rpx;
+  padding: 0 18rpx;
+  border: 1rpx solid rgb(242 203 151 / 39%);
+  border-radius: 18rpx;
+  background: rgb(239 199 143 / 12%);
+  color: #f3cd98;
+  font-size: 22rpx;
+  font-weight: 700;
+  line-height: 58rpx;
+}
+
+.location-card__refresh::after,
+.store-card__button::after {
+  border: 0;
+}
+
+.stores-toolbar {
+  padding: 30rpx 28rpx 20rpx;
+}
+
+.stores-toolbar__title {
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.stores-toolbar__count {
+  margin-top: 5rpx;
+  color: #897b72;
+  font-size: 22rpx;
+}
+
+.stores-toolbar__mode {
+  display: flex;
+  align-items: center;
+  padding: 11rpx 17rpx;
+  border: 1rpx solid #eadfd7;
+  border-radius: 999rpx;
+  background: #fff;
+  color: #624331;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.stores-toolbar__mode-dot {
+  width: 11rpx;
+  height: 11rpx;
+  margin-right: 9rpx;
+  border-radius: 50%;
+  background: #c28b46;
+}
+
+.store-list {
+  padding: 0 24rpx;
+}
+
+.store-card {
+  position: relative;
+  margin-bottom: 22rpx;
+  padding: 28rpx 26rpx 26rpx;
+  border: 1rpx solid #e9dfd7;
+  border-radius: 28rpx;
+  background: #fff;
+  box-shadow: 0 10rpx 30rpx rgb(65 44 31 / 7%);
+}
+
+.store-card--recommended {
+  border-color: #dfc49e;
+  box-shadow: 0 12rpx 34rpx rgb(102 61 31 / 11%);
+}
+
+.store-card--selected {
+  border-color: #aa7443;
+}
+
+.store-card__recommend {
+  position: absolute;
+  top: -1rpx;
+  right: 24rpx;
+  padding: 8rpx 17rpx 9rpx;
+  border-radius: 0 0 14rpx 14rpx;
+  background: linear-gradient(135deg, #a66e35, #d09b57);
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 800;
+}
+
+.store-card__header,
+.store-card__identity {
+  align-items: flex-start;
+}
+
+.store-card__identity {
+  min-width: 0;
+  flex: 1;
+}
+
+.store-card__status-dot {
+  width: 18rpx;
+  height: 18rpx;
+  flex: 0 0 auto;
+  margin-top: 12rpx;
+  border: 6rpx solid #f1eeee;
+  border-radius: 50%;
+  background: #9d9a98;
+}
+
+.store-card__status-dot--open {
+  border-color: #dcf4e6;
+  background: #31b66b;
+}
+
+.store-card__heading {
+  min-width: 0;
+  margin-left: 14rpx;
+}
+
+.store-card__name {
+  display: block;
+  overflow: hidden;
+  color: #30221c;
+  font-size: 31rpx;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.store-card__tags {
+  flex-wrap: wrap;
+  margin-top: 9rpx;
+  gap: 9rpx;
+}
+
+.store-card__tag {
+  padding: 5rpx 10rpx;
+  border-radius: 8rpx;
+  background: #f4eee8;
+  color: #775640;
+  font-size: 19rpx;
+  font-weight: 700;
+}
+
+.store-card__distance {
+  display: flex;
+  min-width: 96rpx;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 9rpx 0 0 14rpx;
+}
+
+.store-card__distance-value {
+  color: #a56731;
+  font-size: 27rpx;
+  font-weight: 900;
+}
+
+.store-card__distance-label {
+  margin-top: 4rpx;
+  color: #9a8e86;
+  font-size: 19rpx;
+}
+
+.store-card__pickup {
+  margin-top: 22rpx;
+  padding: 18rpx;
+  border-radius: 18rpx;
+  background: #f7f1ea;
+}
+
+.store-card__pickup-icon {
+  display: flex;
+  width: 40rpx;
+  height: 40rpx;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13rpx;
+  background: #543526;
+  color: #f4d29d;
+  font-size: 20rpx;
+  font-weight: 900;
+}
+
+.store-card__pickup-text {
+  flex: 1;
+  margin-left: 12rpx;
+  color: #604f44;
+  font-size: 23rpx;
+  font-weight: 700;
+}
+
+.store-card__business-status {
+  flex: 0 0 auto;
+  margin-left: 12rpx;
+  padding: 6rpx 11rpx;
+  border-radius: 999rpx;
+  background: #eeecea;
+  color: #918982;
+  font-size: 19rpx;
+  font-weight: 800;
+}
+
+.store-card__business-status--open {
+  background: #e5f6eb;
+  color: #258956;
+}
+
+.store-card__details {
+  padding: 19rpx 2rpx 7rpx;
+}
+
+.store-card__detail-row {
+  align-items: flex-start;
+  padding: 7rpx 0;
+}
+
+.store-card__detail-label {
+  width: 120rpx;
+  flex: 0 0 auto;
+  color: #9a8e86;
+  font-size: 22rpx;
+  line-height: 1.55;
+}
+
+.store-card__detail-value {
+  flex: 1;
+  color: #55473f;
+  font-size: 23rpx;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.store-card__detail-value--phone {
+  color: #9c6233;
+  text-decoration: underline;
+  text-decoration-color: rgb(156 98 51 / 30%);
+}
+
+.store-card__actions {
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee7e2;
+  gap: 16rpx;
+}
+
+.store-card__button {
+  display: flex;
+  height: 74rpx;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-radius: 20rpx;
+  font-size: 25rpx;
+  font-weight: 800;
+  line-height: 74rpx;
+}
+
+.store-card__button--ghost {
+  width: 190rpx;
+  flex: 0 0 auto;
+  border: 1rpx solid #dacbc0;
+  background: #fff;
+  color: #684936;
+}
+
+.store-card__button--primary {
+  flex: 1;
+  background: linear-gradient(135deg, #4b2c20, #754b34);
+  color: #fff;
+  box-shadow: 0 8rpx 20rpx rgb(66 39 26 / 16%);
+}
+
+.store-card__button--selected {
+  background: linear-gradient(135deg, #9f6b35, #c7985a);
+}
+
+.store-card__button[disabled] {
+  background: #ddd8d4;
+  box-shadow: none;
+  color: #918b86;
+  opacity: 1;
+}
+
+.store-card__button-icon {
+  margin-right: 8rpx;
+  font-size: 28rpx;
+}
+
+.stores-note {
+  align-items: flex-start;
+  margin: 6rpx 24rpx 0;
+  padding: 21rpx 22rpx;
+  border: 1rpx solid #e6d9ce;
+  border-radius: 20rpx;
+  background: #efe7df;
+}
+
+.stores-note__icon {
+  display: flex;
+  width: 32rpx;
+  height: 32rpx;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rpx;
+  border-radius: 50%;
+  background: #76513a;
+  color: #fff;
+  font-size: 19rpx;
+  font-weight: 800;
+}
+
+.stores-note__text {
+  margin-left: 12rpx;
+  color: #75665d;
+  font-size: 21rpx;
+  line-height: 1.55;
+}
